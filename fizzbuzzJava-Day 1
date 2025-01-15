@@ -1,0 +1,17 @@
+public class MyClass {
+  public static void main(String args[]) {
+    int x=3;
+    int y=5;
+    int z=15;
+    int i=15;
+    if (i ==15){
+        System.out.println("FizzBuzz");
+    }
+    else if (i == 3){
+        System.out.println("Fizz");
+    }
+    else if (i ==5){
+        System.out.println("Buzz");
+    }
+}
+}
