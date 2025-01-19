@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Prime or not</title>
+</head>
+<body>
+<form>
+<label> Enter number: </label>
+<input type="number"id="number"> 
+<button id = "submit">submit</button>
+</form>
+<script>
+  
+const button = document.getElementById("submit");
+
+button.addEventListener("click", function() {
+    const num = document.getElementById("number").value;
+
+    let prime = true;
+      for (let i = 2; i < num; i++) {
+          if (num % i == 0) {
+            prime = false;
+            break;
+    }
+      }
+
+    if (prime == true) {
+        window.alert(num +" is prime.");
+      } else if(prime == false){
+        window.alert(num +" is not prime.");
+      }
+      else{
+        window.alert(num+" is not valid");
+      }
+        });
+</script>
+
+</body>
+</html>
