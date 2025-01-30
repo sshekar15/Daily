@@ -3,9 +3,9 @@ class factorial {
     static void factorial() { 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter number:");
-        int num = scanner.nextInt();
-        int sum = 1;
-        int i;
+        double num = scanner.nextInt();
+        double sum = 1.0;
+        double i;
         for(i = num; i > 0; i--){
             sum = i * sum;
             
