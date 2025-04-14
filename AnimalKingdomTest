@@ -1,12 +1,17 @@
+// Base class
 class Animal {
     protected String name;
+
+    Animal() {
+        this.name = "Cow";
+    }
 
     public Animal(String name) {
         this.name = name;
     }
 
     public void speak() {
-        System.out.println("Some generic animal sound");
+        System.out.println("Moo");
     }
 
     @Override
@@ -24,13 +29,18 @@ class Animal {
     }
 }
 
+// Subclass
 class Mammal extends Animal {
-    protected boolean warmBlooded;
-    protected String dietType;
-    protected int numLegs;
-    protected String sound;
+    protected boolean warmBlooded = true;
+    protected String dietType = "carnivore";
+    protected int numLegs = 4;
+    protected String sound = "growl";
 
-    public Mammal(String name, boolean warmBlooded, String dietType, int numLegs, String sound) {
+    Mammal() {
+        super("lion");
+    }
+
+    Mammal(String name, boolean warmBlooded, String dietType, int numLegs, String sound) {
         super(name);
         this.warmBlooded = warmBlooded;
         this.dietType = dietType;
@@ -48,8 +58,9 @@ class Mammal extends Animal {
     }
 }
 
+// Dog subclass
 class Dog extends Mammal {
-    public Dog(String name) {
+    Dog(String name) {
         super(name, true, "omnivore", 4, "Woof!");
     }
 
@@ -64,8 +75,9 @@ class Dog extends Mammal {
     }
 }
 
+// Cat subclass
 class Cat extends Mammal {
-    public Cat(String name) {
+    Cat(String name) {
         super(name, true, "carnivore", 4, "Meow!");
     }
 
@@ -80,19 +92,21 @@ class Cat extends Mammal {
     }
 }
 
+// Final Human class
 final class Human extends Mammal {
-    public Human(String name) {
+    Human(String name) {
         super(name, true, "omnivore", 2, "Hello!");
     }
 }
 
+// Reptile class
 class Reptile extends Animal {
     protected boolean warmBlooded;
     protected String dietType;
     protected int numLegs;
     protected String sound;
 
-    public Reptile(String name, boolean warmBlooded, String dietType, int numLegs, String sound) {
+    Reptile(String name, boolean warmBlooded, String dietType, int numLegs, String sound) {
         super(name);
         this.warmBlooded = warmBlooded;
         this.dietType = dietType;
@@ -106,8 +120,9 @@ class Reptile extends Animal {
     }
 }
 
+// Extra subclass (Bird)
 class Bird extends Animal {
-    public Bird(String name) {
+    Bird(String name) {
         super(name);
     }
 
@@ -117,7 +132,8 @@ class Bird extends Animal {
     }
 }
 
-public class AnimalKingdomTests {
+// Main test class
+public class AnimalKingdomTest {
     public static void main(String[] args) {
         Animal a1 = new Dog("Buddy");
         Animal a2 = new Cat("Whiskers");
@@ -133,5 +149,11 @@ public class AnimalKingdomTests {
         if (a1 instanceof Mammal) {
             ((Mammal) a1).performTrick();
         }
+
+        // Bird test
+        Bird b = new Bird("Parrot");
+        b.speak();
+
+        //Human class is final and cannot be changed.
     }
 }
